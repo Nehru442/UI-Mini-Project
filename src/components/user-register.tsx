@@ -70,7 +70,7 @@ export function UserRegister(){
           <div className="card-body" >    
                 <form onSubmit={formik.handleSubmit}>
                 <dl>  
-                    <dt>User Id</dt>
+                    <dt className="bi bi-person-fill"> User Id</dt>
                     <dd><input type='text'  onBlur={handleOnBlur} onKeyUp={VerifyUser} onChange={formik.handleChange} name="user_id"/></dd>
                     <dd className={userColor}></dd>
                     <dd>{formik.errors.user_id}</dd>
@@ -87,7 +87,7 @@ export function UserRegister(){
                     <dd><input type='text' onBlur={handleOnBlur} onChange={formik.handleChange} name="mobile"/></dd>
                     <dd>{formik.errors.mobile}</dd>
                 </dl>
-                <button type='submit' className="btn btn-outline-info">Register</button>
+                <button type='submit' className="btn btn-outline-warning">Register</button>
                 <div className='mt-3'>
                     <Link to='/user-login' className="btn btn-danger">Exist User?</Link>
                 </div>   
