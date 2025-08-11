@@ -21,19 +21,19 @@ function App() {
             <div className="d-flex align-items-center">
               <i className="bi bi-film fs-1 p-3 text-warning me-3"></i>
               <h1 className="m-0 fs-2">
-                <Link to="/" className="text-black text-center text-decoration-none">
+                <Link to="/" className="text-white text-center text-decoration-none">
                   Video Library
                 </Link>
               </h1>
             </div>
             <div className="mt-3 mt-md-0">
-              <Link to="/" className="btn btn-outline-success me-2">
+              <Link to="/" className="btn btn-outline-warning me-2">
                 <i className="bi bi-house-door-fill me-1"></i> Home
               </Link>
-              <Link to="/user-login" className="btn btn-outline-success me-2">
+              <Link to="/user-login" className="btn btn-outline-warning me-2">
                 <i className="bi bi-box-arrow-in-right me-1"></i> Login
               </Link>
-              <Link to="/user-register" className="btn btn-outline-success">
+              <Link to="/user-register" className="btn btn-outline-warning">
                 <i className="bi bi-person-plus-fill me-1"></i> Register
               </Link>
             </div>

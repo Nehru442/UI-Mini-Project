@@ -69,14 +69,14 @@ export function DeleteVideo(){
         }
     
     return(
-        <div className="card shadow-lg bg-light h-50 ">
-           <div className="card-header bg-secondary text-white"> 
+        <div className="card d-flex justify-content-center ">
+           <div className="card-header  text-white"> 
              <h2 >Delete Video</h2>
              <h4>Are you sure ?</h4>
            </div> 
-            <div className="card-body fs-4">
+            <div className="card-body  text-white fs-3">
                 <dl>
-                    <dt > TITLE</dt>
+                    <dt> <i>TITLE</i></dt>
                     <dd>{videos[0].title}</dd>
                     <dt>Preview</dt>
                     <dd>

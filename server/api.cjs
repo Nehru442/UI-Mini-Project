@@ -148,6 +148,21 @@ app.put("/edit-video/:id", (req, res)=>{
       })
 })
 
+app.put('/like-video/:id', (req, res) => {
+  let videoId = req.params.id;
+  db.query("UPDATE videos SET likes = likes + 1 WHERE video_id = ?", [videoId], (err) => {
+    if (err) return res.status(500).send("Error");
+    res.send("Like updated");
+  });
+});
+
+app.put('/view-video/:id', (req, res) => {
+  let videoId = req.params.id;
+  db.query("UPDATE videos SET views = views + 1 WHERE video_id = ?", [videoId], (err) => {
+    if (err) return res.status(500).send("Error");
+    res.send("View updated");
+  });
+});
 
 app.delete("/delete-video/:id", (req, res)=>{
 

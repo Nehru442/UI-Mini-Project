@@ -74,16 +74,16 @@ export function UserRegister(){
                     <dd><input type='text'  onBlur={handleOnBlur} onKeyUp={VerifyUser} onChange={formik.handleChange} name="user_id"/></dd>
                     <dd className={userColor}></dd>
                     <dd>{formik.errors.user_id}</dd>
-                    <dt>User Name</dt>
+                    <dt className="bi bi-person-circle"> User Name</dt>
                     <dd><input type='text' onBlur={handleOnBlur} onChange={formik.handleChange} name="user_name"/></dd>
                     <dd className="text-warning">{formik.errors.user_name}</dd>
-                    <dt>Email</dt>
+                    <dt className="bi bi-envelope-fill"> Email</dt>
                     <dd><input type='email' onBlur={handleOnBlur} onChange={formik.handleChange} value={formik.values.email} name="email"/></dd>
                     <dd>{formik.errors.email}</dd>
-                    <dt>Password</dt>
+                    <dt className="bi bi-lock-fill"> Password</dt>
                     <dd><input type='password' onBlur={handleOnBlur} onChange={formik.handleChange} name="password"/></dd>
                     <dd>{formik.errors.password}</dd>
-                    <dt>Mobile</dt>
+                    <dt className="bi bi-phone"> Mobile</dt>
                     <dd><input type='text' onBlur={handleOnBlur} onChange={formik.handleChange} name="mobile"/></dd>
                     <dd>{formik.errors.mobile}</dd>
                 </dl>

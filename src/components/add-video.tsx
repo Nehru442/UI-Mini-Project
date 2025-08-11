@@ -40,8 +40,8 @@ export function AddVideo(){
     },[])
 
     return(
-        <div className=" bg-light mt-4">
-            <h2 className="bg-light p-4 text-center">Add Video</h2>
+        <div className="card ">
+            <h2 className="card-title"> Add Video</h2>
              <form onSubmit={formik.handleSubmit}>
                 <dl className="row">
                     <dt className="col-2">Video Id</dt>

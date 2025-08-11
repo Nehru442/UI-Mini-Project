@@ -38,6 +38,26 @@ export function UserDashBoard(){
     function handleSaveClick(video : VideoContract){
            dispatch(addToSaveList(video));
     }
+
+    function handleLikeClick(video: VideoContract) {
+  axios.put(`http://127.0.0.1:5070/like-video/${video.video_id}`)
+    .then(() => {
+      // Update local state after success
+      setVideos(prev =>
+        prev?.map(v => v.video_id === video.video_id ? { ...v, likes: v.likes + 1 } : v)
+      );
+    });
+}
+
+function handleViewClick(video: VideoContract) {
+  axios.put(`http://127.0.0.1:5070/view-video/${video.video_id}`)
+    .then(() => {
+      setVideos(prev =>
+        prev?.map(v => v.video_id === video.video_id ? { ...v, views: v.views + 1 } : v)
+      );
+    });
+}
+
   
     return(
         <div className="mt-4">
@@ -49,18 +69,31 @@ export function UserDashBoard(){
                {
                 videos?.map(video=>
                     <div key={video.video_id} className="card m-2 p-1" style={{width:"250px"}}>
-                        <iframe src={video.url}></iframe>
+                       <iframe
+                        src={video.url}
+                        width="100%"
+                        height="150"
+                        onClick={() => handleViewClick(video)} 
+                        style={{ cursor: 'pointer' }}
+                        >
+                        </iframe>
+
                         <div className="card-header">
                              <h3>{video.title}</h3>
                         </div>
                         <div className="card-body">
                              <h3>{video.description}</h3>
                         </div>
-                        <div className="card-footer">
-                            <span className="bi bi-hand-thumbs-up">{video.likes}</span>
-                            <span className="bi bi-eye mx-3">{video.views}</span>
-                            <button onClick={() => {handleSaveClick(video)} } className="btn btn-primary bi bi-floppy mt-1"> </button>
+                        <div className="card-footer d-flex justify-content-between align-items-center">
+                            <div>
+                                <button onClick={() => handleLikeClick(video)} className="btn btn-sm btn-outline-primary me-2">
+                                <i className="bi bi-hand-thumbs-up-fill"></i> {video.likes}
+                                </button>
+                                <span className="bi bi-eye"> {video.views}</span>
+                            </div>
+                            <button onClick={() => handleSaveClick(video)} className="btn btn-sm btn-success bi bi-floppy"> </button>
                         </div>
+
                     </div>
                 )
                }
